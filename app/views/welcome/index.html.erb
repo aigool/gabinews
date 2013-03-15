@@ -1,17 +1,17 @@
 <h1>Тестовое задание. Новостная система.</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-
 <h2>Новости, отсортированные по рейтингу и дате добавления</h2>
 
 <% for news in @newslist -%>
- <h3><%= news.title %></h3>
+ <h3><a href='/news/<%= news.id %>'><%= news.title %></a></h3>
  <p>
  <%= news.text %>
  <br/><br/>
- <i><small>Автор: <%= news.user %>. Добавлено: <%= news.created_at %>. Рейтинг: <%= news.rating %></small></i>
+ <i><small>Автор: <b><%= Users.find(news.user).name %></b>. Добавлено: <b><%= news.created_at %></b>. 
+ 	Рейтинг: <b><%= news.rating %></b></small>
+ </i>
  </p>
  <hr/>
- <% end %>
+<% end %>
 
 
 <h2>Авторизация</h2>

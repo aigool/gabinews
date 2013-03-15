@@ -1,6 +1,8 @@
 class NewsController < ApplicationController
 
-  def index
-    @newslist = News.order('rating').reverse
-  end
+ def index
+   if params[:id]
+     @news = News.find(params[:id])
+   end
+ end
 end

@@ -9,9 +9,8 @@ Gabinews::Application.routes.draw do
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
-  match 'blog' => 'blog#index'
   match 'edit_news' => 'edit_news#index'
-  match 'news' => 'news#index'
+  match 'news/:id' => 'news#index#news#id'
   match 'add_news' => 'add_news#index'
   match 'welcome/authorization' => 'welcome#authorization'
   # Sample of named route:
