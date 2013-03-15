@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Новостная система Айгуль.</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div>
+Главное меню: <a>Все новости</a> | <a>Мои новости</a> | <a>Добавить новость</a>
+</div>
+
+<%= yield %>
+
+</body>
+</html>

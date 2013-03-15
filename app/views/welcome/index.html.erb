@@ -1,0 +1,23 @@
+<h1>Тестовое задание. Новостная система.</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+
+<h2>Новости, отсортированные по рейтингу и дате добавления</h2>
+
+<% for news in @newslist -%>
+ <h3><%= news.title %></h3>
+ <p>
+ <%= news.text %>
+ <br/><br/>
+ <i><small>Автор: <%= news.user %>. Добавлено: <%= news.created_at %>. Рейтинг: <%= news.rating %></small></i>
+ </p>
+ <hr/>
+ <% end %>
+
+
+<h2>Авторизация</h2>
+<%= form_tag(:controller => "welcome", :action => "authorization") do -%>
+ E-mail: <%= text_field_tag :mail%>
+ Password: <%= text_field_tag :password%>
+ <br/>
+ <%= submit_tag "Авторизоваться" %>
+<% end -%>
