@@ -1,0 +1,42 @@
+<h1>Личный кабинет автора.</h1>
+
+<%if @auth == 1 -%>
+
+<h2>Здравствуйте, <%= Users.find(@user).name %>!<br>
+Ваши новости:</h2>
+
+<% for news in @mynews -%>
+ <h3><a href='/news/<%= news.id %>'><%= news.title %></a></h3>
+ <p>
+ <%= news.text %>
+ <br/><br/>
+ <i><small>Автор: <b><%= Users.find(news.user).name %></b>. Добавлено: <b><%= news.created_at %></b>. 
+ 	Рейтинг: <b><%= news.rating %></b></small>
+ </i>
+ </p>
+ <%= form_tag(:controller => "welcome", :action => "edit_news") do -%>
+   <%= hidden_field_tag 'id', news.id %>
+   <%= submit_tag "Редактировать" %>
+ <% end -%>
+ 
+ <%= form_tag(:controller => "welcome", :action => "delete") do -%>
+   <%= hidden_field_tag 'id', news.id %>
+   <%= submit_tag "Удалить" %>
+ <% end -%>
+
+ <hr/>
+<% end %>
+
+<% else -%>
+
+<h2>Авторизация</h2>
+<%= form_tag(:controller => "welcome", :action => "authorization") do -%>
+ E-mail: <%= text_field_tag :mail%>
+ Password: <%= text_field_tag :password%>
+ <br/>
+ <%= submit_tag "Авторизоваться" %>
+<% end -%>
+
+<% end %>
+
+

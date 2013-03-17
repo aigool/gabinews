@@ -9,10 +9,16 @@ Gabinews::Application.routes.draw do
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
-  match 'edit_news' => 'edit_news#index'
-  match 'news/:id' => 'news#index#news#id'
-  match 'add_news' => 'add_news#index'
+  match 'news/:id' => 'news#index#id'
+  match 'add_news' => 'welcome#edit_news'
+  match 'welcome/create' => 'welcome#create'
+  match 'welcome/edit' => 'welcome#edit'
+  match 'welcome/edit_news' => 'welcome#edit_news#id'
+  match 'edit_news' => 'welcome#edit_news#id'
   match 'welcome/authorization' => 'welcome#authorization'
+  match 'welcome/delete' => 'welcome#delete'
+  match 'add_news/create' => 'add_news#create'
+  match 'mynews' => 'welcome#mynews'
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
